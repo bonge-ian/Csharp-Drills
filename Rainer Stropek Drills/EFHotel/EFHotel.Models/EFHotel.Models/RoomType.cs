@@ -21,7 +21,7 @@ public class RoomType : BaseModel
     public int HotelId { get; set; }
     
     [ForeignKey(nameof(HotelId))]
-    [InverseProperty(nameof(Hotel.RoomTypes))]
+    [InverseProperty(nameof(Models.Hotel.RoomTypes))]
     public Hotel Hotel { get; set; } = default!;
     
 
