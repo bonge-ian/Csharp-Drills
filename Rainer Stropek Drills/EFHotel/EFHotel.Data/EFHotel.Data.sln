@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFHotel.Data", "EFHotel.Data\EFHotel.Data.csproj", "{667D1763-4D8E-4D92-ACFE-F670782CDDDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFHotel.Models", "..\EFHotel.Models\EFHotel.Models\EFHotel.Models.csproj", "{8021CF08-E02F-4DE4-A3BD-A71F7D45EDBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{667D1763-4D8E-4D92-ACFE-F670782CDDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{667D1763-4D8E-4D92-ACFE-F670782CDDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{667D1763-4D8E-4D92-ACFE-F670782CDDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{667D1763-4D8E-4D92-ACFE-F670782CDDDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8021CF08-E02F-4DE4-A3BD-A71F7D45EDBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8021CF08-E02F-4DE4-A3BD-A71F7D45EDBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8021CF08-E02F-4DE4-A3BD-A71F7D45EDBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8021CF08-E02F-4DE4-A3BD-A71F7D45EDBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
