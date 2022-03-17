@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EFHotel.Data.Migrations
 {
     [DbContext(typeof(EFHotelContext))]
-    [Migration("20220316123503_Initial")]
+    [Migration("20220316154039_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,9 +54,9 @@ namespace EFHotel.Data.Migrations
                     b.Property<int>("SpecialId")
                         .HasColumnType("int");
 
-                    b.HasIndex("SpecialId");
+                    b.HasKey("HotelId", "SpecialId");
 
-                    b.HasIndex("HotelId", "SpecialId");
+                    b.HasIndex("SpecialId");
 
                     b.ToTable("HotelSpecial");
                 });
@@ -145,9 +145,6 @@ namespace EFHotel.Data.Migrations
                     b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("timestamp");
 
-                    b.Property<int?>("HotelId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -158,8 +155,6 @@ namespace EFHotel.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HotelId");
-
                     b.HasIndex("Name")
                         .IsUnique();
 
@@ -169,65 +164,65 @@ namespace EFHotel.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(514),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9918),
                             Name = "Spa",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(523)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9928)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(528),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9935),
                             Name = "Sauna",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(529)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9936)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(530),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9937),
                             Name = "Dog friendly",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(531)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9938)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(532),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9939),
                             Name = "Indoor pool",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(532)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9940)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(533),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9941),
                             Name = "Outdoor pool",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(534)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9941)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(537),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9945),
                             Name = "Bike rental",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(538)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9945)
                         },
                         new
                         {
                             Id = 7,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(539),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9947),
                             Name = "eCar charging station",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(539)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9947)
                         },
                         new
                         {
                             Id = 8,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(540),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9948),
                             Name = "Vegetarian cuisine",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(541)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9949)
                         },
                         new
                         {
                             Id = 9,
-                            CreatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(542),
+                            CreatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9950),
                             Name = "Organic food",
-                            UpdatedAt = new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(542)
+                            UpdatedAt = new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9951)
                         });
                 });
 
@@ -269,13 +264,13 @@ namespace EFHotel.Data.Migrations
             modelBuilder.Entity("EFHotel.Models.HotelSpecial", b =>
                 {
                     b.HasOne("EFHotel.Models.Hotel", "Hotel")
-                        .WithMany()
+                        .WithMany("HotelSpecials")
                         .HasForeignKey("HotelId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("EFHotel.Models.Special", "Special")
-                        .WithMany()
+                        .WithMany("HotelSpecials")
                         .HasForeignKey("SpecialId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -307,24 +302,22 @@ namespace EFHotel.Data.Migrations
                     b.Navigation("Hotel");
                 });
 
-            modelBuilder.Entity("EFHotel.Models.Special", b =>
-                {
-                    b.HasOne("EFHotel.Models.Hotel", null)
-                        .WithMany("Specials")
-                        .HasForeignKey("HotelId");
-                });
-
             modelBuilder.Entity("EFHotel.Models.Hotel", b =>
                 {
-                    b.Navigation("RoomTypes");
+                    b.Navigation("HotelSpecials");
 
-                    b.Navigation("Specials");
+                    b.Navigation("RoomTypes");
                 });
 
             modelBuilder.Entity("EFHotel.Models.RoomType", b =>
                 {
                     b.Navigation("Price")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EFHotel.Models.Special", b =>
+                {
+                    b.Navigation("HotelSpecials");
                 });
 #pragma warning restore 612, 618
         }

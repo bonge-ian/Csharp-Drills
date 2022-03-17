@@ -85,13 +85,15 @@ public static class EFHotelSeeder
                 () =>
                 {
                     using var transaction = context.Database.BeginTransaction();
-
+                    context.ChangeTracker.Clear();
                     try
                     {
-                        table.AddRange(records);
+                        table.AddRange(records); 
                         context.SaveChanges();
                         context.ChangeTracker.Clear();
+
                         transaction.Commit();
+                        // context.ChangeTracker.Clear();
                     }
                     catch (Exception)
                     {

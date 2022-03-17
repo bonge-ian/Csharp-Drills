@@ -121,7 +121,7 @@ public static class DataGenerator
         new RoomPrice()
         {
             Id = 8,
-            Price = "Ksh 1969.00",
+            Price = "Ksh 1960.00",
             ValidFrom = DateTime.Now.AddDays(-20),
             ValidUntil = DateTime.Now.AddDays(31),
             RoomTypeId = 8,
@@ -149,116 +149,99 @@ public static class DataGenerator
             Size = "11x11 sq.m.",
             Rooms = 44,
             IsAccessibleToDisabled = true,
-            HotelId = 1,
+            HotelId = 2,
             
         },
         new RoomType()
         {
-            Id = 1,
+            Id = 3,
             Title = "Deluxe 1",
             Description = "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born  ",
             Size = "11x11 sq.m.",
             Rooms = 20,
             IsAccessibleToDisabled = false,
-            HotelId = 2,
-        },
-        new RoomType()
-        {
-            Id = 3,
-            Title = "Deluxe 3",
-            Description = "Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
-            Size = "10x10 sq.m.",
-            Rooms = 60,
-            IsAccessibleToDisabled = true,
             HotelId = 3,
         },
         new RoomType()
         {
             Id = 4,
+            Title = "Deluxe 3",
+            Description = "Inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. ",
+            Size = "10x10 sq.m.",
+            Rooms = 60,
+            IsAccessibleToDisabled = true,
+            HotelId = 4,
+        },
+        new RoomType()
+        {
+            Id = 5,
             Title = "Deluxe 4",
             Description = "On the other hand, we denounce with righteous indignation",
             Size = "12x12 sq.m.",
             Rooms = 40,
             IsAccessibleToDisabled = false,
-            HotelId = 3,
+            HotelId = 5,
         },
         new RoomType()
         {
-            Id = 5,
+            Id = 6,
             Title = "Deluxe 5",
             Description = "The wise man therefore always holds in these matters to this principle of selection",
             Size = "15x14 sq.m.",
             Rooms = 10,
             IsAccessibleToDisabled = true,
             HotelId = 4,
-
+        
         },
         new RoomType()
         {
-            Id = 6,
+            Id = 7,
             Title = "Deluxe 6",
             Description = "Sed ut perspiciatis unde always holds in these matters cta sunt explicabo. ",
             Size = "11x11 sq.m.",
             Rooms = 22,
             IsAccessibleToDisabled = false,
-            HotelId = 5,
-
+            HotelId = 1,
+        
         },
         new RoomType()
         {
-            Id = 7,
+            Id = 8,
             Title = "Deluxe 7",
             Description = "Section 1.10.33 of de Finibus Bonorum et Malorum, written by Cicero in 45 BC",
             Size = "13x12 sq.m.",
             Rooms = 60,
             IsAccessibleToDisabled = false,
-            HotelId = 3,
-
+            HotelId = 2,
+        
         },
         new RoomType()
         {
-            Id = 8,
+            Id = 9,
             Title = "Deluxe 8",
             Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore . ",
             Size = "14x10 sq.m.",
             Rooms = 45,
             IsAccessibleToDisabled = false,
-            HotelId = 4,
-
-        },
-        new RoomType()
-        {
-            Id = 9,
-            Title = "Deluxe 9",
-            Description = "The sample application has been simplified and the static utility classes have been replaced by a LoremIpsumFactory ",
-            Size = "14x17 sq.m.",
-            Rooms = 32,
-            IsAccessibleToDisabled = true,
-            HotelId = 2,
-
+            HotelId = 3,
+        
         },
         
     };
 
     public static List<HotelSpecial> PopulateHotelSpecials() => new List<HotelSpecial>()
     {
-        new HotelSpecial() {HotelId = 1, SpecialId = 1},
-        new HotelSpecial() {HotelId = 2, SpecialId = 2},
+        new HotelSpecial() {HotelId = 1, SpecialId = 5},
+        new HotelSpecial() {HotelId = 2, SpecialId = 4},
         new HotelSpecial() {HotelId = 3, SpecialId = 3},
-        new HotelSpecial() {HotelId = 4, SpecialId = 4},
-        new HotelSpecial() {HotelId = 5, SpecialId = 5},
-        new HotelSpecial() {HotelId = 1, SpecialId = 6},
-        new HotelSpecial() {HotelId = 2, SpecialId = 7},
-        new HotelSpecial() {HotelId = 4, SpecialId = 8},
-        new HotelSpecial() {HotelId = 5, SpecialId = 9},
-        new HotelSpecial() {HotelId = 3, SpecialId = 1},
-        new HotelSpecial() {HotelId = 4, SpecialId = 2},
-        new HotelSpecial() {HotelId = 2, SpecialId = 5},
-        new HotelSpecial() {HotelId = 5, SpecialId = 6},
-        new HotelSpecial() {HotelId = 1, SpecialId = 7},
-        new HotelSpecial() {HotelId = 2, SpecialId = 3},
         new HotelSpecial() {HotelId = 4, SpecialId = 2},
         new HotelSpecial() {HotelId = 5, SpecialId = 1},
-        new HotelSpecial() {HotelId = 1, SpecialId = 3},
+        new HotelSpecial() {HotelId = 1, SpecialId = 6},
+        new HotelSpecial() {HotelId = 2, SpecialId = 7},
+        new HotelSpecial() {HotelId = 3, SpecialId = 8},
+        new HotelSpecial() {HotelId = 4, SpecialId = 9},
+        new HotelSpecial() {HotelId = 5, SpecialId = 2},
+        new HotelSpecial() {HotelId = 1, SpecialId = 2},
+        new HotelSpecial() {HotelId = 2, SpecialId = 2}
     };
 }

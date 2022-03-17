@@ -39,6 +39,23 @@ namespace EFHotel.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Specials",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Specials", x => x.Id);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "RoomTypes",
                 columns: table => new
                 {
@@ -69,25 +86,27 @@ namespace EFHotel.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Specials",
+                name: "HotelSpecial",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    HotelId = table.Column<int>(type: "int", nullable: true),
-                    CreatedAt = table.Column<DateTime>(type: "timestamp", nullable: true),
-                    UpdatedAt = table.Column<DateTime>(type: "timestamp", nullable: true)
+                    HotelId = table.Column<int>(type: "int", nullable: false),
+                    SpecialId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Specials", x => x.Id);
+                    table.PrimaryKey("PK_HotelSpecial", x => new { x.HotelId, x.SpecialId });
                     table.ForeignKey(
-                        name: "FK_Specials_Hotels_HotelId",
+                        name: "FK_HotelSpecial_Hotels_HotelId",
                         column: x => x.HotelId,
                         principalTable: "Hotels",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_HotelSpecial_Specials_SpecialId",
+                        column: x => x.SpecialId,
+                        principalTable: "Specials",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -116,44 +135,20 @@ namespace EFHotel.Data.Migrations
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
-            migrationBuilder.CreateTable(
-                name: "HotelSpecial",
-                columns: table => new
-                {
-                    HotelId = table.Column<int>(type: "int", nullable: false),
-                    SpecialId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.ForeignKey(
-                        name: "FK_HotelSpecial_Hotels_HotelId",
-                        column: x => x.HotelId,
-                        principalTable: "Hotels",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_HotelSpecial_Specials_SpecialId",
-                        column: x => x.SpecialId,
-                        principalTable: "Specials",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
             migrationBuilder.InsertData(
                 table: "Specials",
-                columns: new[] { "Id", "CreatedAt", "HotelId", "Name", "UpdatedAt" },
+                columns: new[] { "Id", "CreatedAt", "Name", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(514), null, "Spa", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(523) },
-                    { 2, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(528), null, "Sauna", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(529) },
-                    { 3, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(530), null, "Dog friendly", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(531) },
-                    { 4, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(532), null, "Indoor pool", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(532) },
-                    { 5, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(533), null, "Outdoor pool", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(534) },
-                    { 6, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(537), null, "Bike rental", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(538) },
-                    { 7, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(539), null, "eCar charging station", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(539) },
-                    { 8, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(540), null, "Vegetarian cuisine", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(541) },
-                    { 9, new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(542), null, "Organic food", new DateTime(2022, 3, 16, 15, 35, 3, 618, DateTimeKind.Local).AddTicks(542) }
+                    { 1, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9918), "Spa", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9928) },
+                    { 2, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9935), "Sauna", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9936) },
+                    { 3, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9937), "Dog friendly", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9938) },
+                    { 4, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9939), "Indoor pool", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9940) },
+                    { 5, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9941), "Outdoor pool", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9941) },
+                    { 6, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9945), "Bike rental", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9945) },
+                    { 7, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9947), "eCar charging station", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9947) },
+                    { 8, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9948), "Vegetarian cuisine", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9949) },
+                    { 9, new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9950), "Organic food", new DateTime(2022, 3, 16, 18, 40, 39, 67, DateTimeKind.Local).AddTicks(9951) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -161,11 +156,6 @@ namespace EFHotel.Data.Migrations
                 table: "Hotels",
                 column: "Name",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_HotelSpecial_HotelId_SpecialId",
-                table: "HotelSpecial",
-                columns: new[] { "HotelId", "SpecialId" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HotelSpecial_SpecialId",
@@ -181,11 +171,6 @@ namespace EFHotel.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_RoomTypes_HotelId",
                 table: "RoomTypes",
-                column: "HotelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Specials_HotelId",
-                table: "Specials",
                 column: "HotelId");
 
             migrationBuilder.CreateIndex(

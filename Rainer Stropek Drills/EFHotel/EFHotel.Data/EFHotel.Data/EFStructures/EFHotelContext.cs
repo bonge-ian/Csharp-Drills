@@ -82,19 +82,19 @@ public class EFHotelContext : DbContext
 
     private void SetTimestamps()
     {
-        var entries = ChangeTracker.Entries().Where(
+        var entities = ChangeTracker.Entries().Where(
             e => e.Entity is BaseModel &&
                  (e.State == EntityState.Added || e.State == EntityState.Modified)
         );
 
-        foreach (var entry in entries)
+        foreach (var entity in entities)
         {
-            if (entry.State == EntityState.Added)
+            if (entity.State == EntityState.Added)
             {
-                entry.Property(nameof(BaseModel.CreatedAt)).CurrentValue = DateTime.Now;
+                ((BaseModel)entity.Entity).CreatedAt = DateTime.UtcNow;
             }
-            
-            entry.Property(nameof(BaseModel.UpdatedAt)).CurrentValue = DateTime.Now;
+
+            ((BaseModel)entity.Entity).UpdatedAt = DateTime.UtcNow;
         }
     }
     
