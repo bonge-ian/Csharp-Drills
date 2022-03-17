@@ -7,6 +7,7 @@ public class SpecialConfiguration : IEntityTypeConfiguration<Special>
     public void Configure(EntityTypeBuilder<Special> builder)
     {
         builder.HasData(PopulateInitialSpecials());
+         
     }
     
     public static List<Special> PopulateInitialSpecials() => new List<Special>()
